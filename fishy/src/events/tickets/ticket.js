@@ -1,4 +1,3 @@
-const { error } = require('console');
 const Discord = require('discord.js');
 const path = require('path');
 const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"));
@@ -19,12 +18,8 @@ module.exports = {
      * @param {Discord.Interaction} interaction 
      */
     run: async (client, interaction) => {
-        // Vérifier si l'interaction est un bouton ou un sélecteur de ticket
         if (!interaction.customId) return;
-
-        let row = db.prepare("SELECT * FROM ticket WHERE fishyId = ? AND guildId = ?").get(client.fishyId, interaction.guild.id);
         
-        // Gérer la fermeture du ticket
         if (interaction.customId === 'close_ticket') {
             try {
                 const channel = interaction.channel;
@@ -32,7 +27,6 @@ module.exports = {
 
                 await interaction.deferReply({ ephemeral: true });
 
-                // Supprimer le ticket de la base de données avant de supprimer le salon
                 db.prepare('DELETE FROM ticket_open WHERE ticketChannel = ?').run(channel.id);
 
                 await interaction.editReply({
@@ -40,25 +34,8 @@ module.exports = {
                     ephemeral: true
                 });
 
-                let user = null;
-                if (row && row.ticketOwner) {
-                    user = client.users.cache.get(row.ticketOwner);
-                    if (!user) {
-                        user = await client.users.fetch(row.ticketOwner).catch(() => null);
-                    }
-                }
+                await new Promise(resolve => setTimeout(resolve, 500));
 
-                if (user) {
-                    await user.send({
-                        content: `Le ticket a été fermé par <@${interaction.user.id}>`
-                    }).catch(() => {});
-                }
-
-                if (!user) {
-                    throw new Error("Utilisateur du ticket introuvable.");
-                }
-                
-    
                 // Supprimer le salon
                 await channel.delete().catch(console.error);
                 return;
@@ -109,7 +86,6 @@ module.exports = {
                 });
             }
 
-            // Vérifier si déjà claim
             if (existingTicket.ticketOwner && existingTicket.ticketOwner !== "") {
                 if (existingTicket.ticketOwner === interaction.user.id) {
                     return await interaction.followUp({
@@ -152,8 +128,7 @@ module.exports = {
             await msg_ticket.reply({embeds: [claim_embed]});
             return;
         }
-        
-        
+
         if (!interaction.customId.startsWith('send_button_') && !interaction.customId.startsWith("send_selector")) return;
 
         try {
@@ -185,10 +160,8 @@ module.exports = {
                 });
             }
 
-            // Vérifier si l'utilisateur a déjà un ticket ouvert
             const existingTicket = db.prepare('SELECT * FROM ticket_open WHERE ticketAuthor = ? AND ticketId = ?').get(interaction.user.id, row.panelId);
             if (existingTicket) {
-                // Vérifier si le salon existe toujours
                 const ticketChannel = interaction.guild.channels.cache.get(existingTicket.ticketChannel);
                 if (ticketChannel) {
                     return await interaction.editReply({
@@ -232,6 +205,7 @@ module.exports = {
                 }
             ];
 
+            // Ajouter les permissions pour les rôles autorisés
             if (selectedOption.AllowedRoles && selectedOption.AllowedRoles.length > 0) {
                 for (const roleId of selectedOption.AllowedRoles) {
                     permissions.push({
@@ -246,6 +220,7 @@ module.exports = {
                 }
             }
 
+            // Créer le salon du ticket
             const ticketChannel = await interaction.guild.channels.create({
                 name: `ticket-${interaction.user.username}`,
                 type: Discord.ChannelType.GuildText,
@@ -253,9 +228,11 @@ module.exports = {
                 permissionOverwrites: permissions
             });
 
+            // Enregistrer le ticket dans la base de données (ajout ticketOwner null)
             db.prepare('INSERT INTO ticket_open (ticketId, ticketAuthor, ticketChannel, ticketOwner) VALUES (?, ?, ?, ?)')
                 .run(row.panelId, interaction.user.id, ticketChannel.id, null);
 
+            // Créer l'embed du ticket
             const embed = new Discord.EmbedBuilder()
                 .setTitle(selectedOption.Title)
                 .setDescription(selectedOption.Description)
@@ -283,11 +260,13 @@ module.exports = {
 
             const row1 = new Discord.ActionRowBuilder().addComponents(claimButton, closeButton);
 
+            // Préparer le contenu des mentions
             let mentionContent = [`<@${interaction.user.id}>`];
             if (selectedOption.MentionRoles && selectedOption.MentionRoles.length > 0) {
                 mentionContent = [...selectedOption.MentionRoles.map(roleId => `<@&${roleId}>`), ...mentionContent];
             }
 
+            // Envoyer le message initial dans le ticket
             let msg_ticket = await ticketChannel.send({
                 content: mentionContent.join(' '),
                 embeds: [embed],
@@ -296,6 +275,7 @@ module.exports = {
 
             await msg_ticket.pin()
 
+            // Répondre à l'interaction
             await interaction.editReply({
                 content: `✅ Votre ticket a été créé : ${ticketChannel}`,
                 ephemeral: true
@@ -315,6 +295,5 @@ module.exports = {
                 });
             }
         }
-
     }
 };
