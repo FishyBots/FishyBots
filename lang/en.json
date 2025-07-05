@@ -1,0 +1,86 @@
+{
+    "Test_Lang": "This is a language test.",
+    
+    "FishyManager": {
+        "mybots": {
+            "title": "Bot of {arg}",
+            "ExpirationText": ""
+        }
+    },
+    "test": "test",
+
+     "embed": {
+        "buttons": [
+            {
+                "text": "Validate",
+                "emoji": "✅"
+            },
+            {
+                "text": "Cancel",
+                "emoji": "✖️"
+            },
+            {
+                "text": "Modify the Embed",
+                "emoji": "✏️"
+            },
+            {
+                "text": "Clear",
+                "emoji": "🗑️"
+            }
+        ],
+        "selector": {
+            "options": [
+                {
+                    "label": "Edit the Title",
+                    "emoji": "✏️",
+                    "value": "titre"
+                },
+                {
+                    "label": "Edit The Description",
+                    "emoji": "💭",
+                    "value": "description"
+                },
+                {
+                    "label": "Edit The Color",
+                    "emoji": "🔴",
+                    "value": "color"
+                },
+                {
+                    "label": "Edit Image",
+                    "emoji": "🖼️",
+                    "value": "image"
+                },
+                {
+                    "label": "Edit the Thumbnail",
+                    "emoji": "🗺️",
+                    "value": "thumbnail"
+                },
+                {
+                    "label": "Edit the author",
+                    "emoji": "👤",
+                    "value": "auteur"
+                },
+                {
+                    "label": "Edit the Footer",
+                    "emoji": "🔻",
+                    "value": "h"
+                },
+                {
+                    "label": "Add a Field",
+                    "emoji": "➕",
+                    "value": "footer"
+                },
+                {
+                    "label": "Remove a Field",
+                    "emoji": "➖",
+                    "value": "add_field"
+                },
+                {
+                    "label": "Copy an embed",
+                    "emoji": "💉",
+                    "value": "copy"
+                }
+            ]
+        }
+    }
+}
