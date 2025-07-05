@@ -4,20 +4,7 @@ let path = require('path')
 const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"));
 const { genid } = require('../../../module/genid')
 
-module.exports = {
-    name: "giveaway",
-    category: 4,
-    description: "Ouvrir le panneau de configuration des giveaway",
-
-    /**
-     * @param {bot} client 
-     * @param {Discord.Message} message 
-     * @param {Array<>} args 
-     * @param {string} prefix 
-     * @param {string} commandName 
-     */
-    run: async (client, message, args, prefix, commandName) => {
-        db.prepare(`CREATE TABLE IF NOT EXISTS giveaways (
+db.prepare(`CREATE TABLE IF NOT EXISTS giveaways (
             id INTEGER PRIMARY KEY AUTOINCREMENT,
             fishyId TEXT,
             giveawayId TEXT,
@@ -31,6 +18,19 @@ module.exports = {
             message TEXT
         )`).run();
 
+module.exports = {
+    name: "giveaway",
+    category: 4,
+    description: "Ouvrir le panneau de configuration des giveaway",
+
+    /**
+     * @param {bot} client 
+     * @param {Discord.Message} message 
+     * @param {Array<>} args 
+     * @param {string} prefix 
+     * @param {string} commandName 
+     */
+    run: async (client, message, args, prefix, commandName) => {
         let giveawayId = genid(6);
 
         let row2 = new ActionRowBuilder()
