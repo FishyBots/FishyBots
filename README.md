@@ -8,8 +8,8 @@
 </header>
 
 <p align="center">
-  <img align="center" alt="GitHub Stars" src="https://img.shields.io/github/stars/fishybots/fishybots?style=for-the-badge">
-  <img align="center" alt="GitHub Contributors" src="https://img.shields.io/github/contributors/fishybots/fishybots.svg?style=for-the-badge">
+  <img align="center" alt="GitHub Stars" src="https://img.shields.io/github/stars/FishyBots/FishyBots?style=for-the-badge">
+  <img align="center" alt="GitHub Contributors" src="https://img.shields.io/github/contributors/FishyBots/FishyBots?style=for-the-badge">
   <br><br>
   <a href="https://discord.gg/RsBRuNnCVn" >
     <img src="https://discordapp.com/api/guilds/1362734654221717555/widget.png?style=shield" alt="Discord Server">
