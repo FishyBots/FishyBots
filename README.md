@@ -1,8 +1,6 @@
 <!-- OpenFishy (c) 2025 -->
 
 <img src="./fishy/assets/fishybanner.png">
-<br>
-<br>
 <header>
   <h1 align="center">FishyBots 🐟</h1>
   <h3 align="center">A multipurpose Discord bot with a built-in manager🔧</h3>
