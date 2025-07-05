@@ -58,7 +58,7 @@
 <p>Then, you need to install the dependencies:</p>
 <pre><code>npm install</code></pre>
 
-<p>After that, you need to rename the <b>.example.env</b> to <b>.env</b> and configure it, to generate the <code>KEY</code> and <code>IV</code>. To generate the KEY and IV, run the script in the <code>script/</code> folder: </p>
+<p>After that, you need to rename the <b>.example.env</b> to <b>.env</b> and configure it, to generate the <code>KEY</code> and <code>IV</code>, run the script in the <code>script/</code> folder: </p>
 
 <pre><code>node script/genKey.js</code></pre>
 
