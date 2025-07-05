@@ -22,15 +22,6 @@ module.exports = {
             return interaction.reply('🚫 Vous n\'êtes pas autorisé à utiliser cette commande.');
         }
 
-        db.prepare(`CREATE TABLE IF NOT EXISTS BUYERS (
-                    id INTEGER PRIMARY KEY,
-                    fishyId TEXT,
-                    botId TEXT,  
-                    ownerId TEXT,  
-                    token TEXT UNIQUE NOT NULL,
-                    expire TEXT
-                )`).run();
-
         const user = interaction.options.getUser('user');
 
         const modal = new ModalBuilder()

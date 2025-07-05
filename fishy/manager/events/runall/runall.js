@@ -5,6 +5,16 @@ const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"
 
 let autorunall = true;
 
+db.prepare(`CREATE TABLE IF NOT EXISTS BUYERS (
+                    id INTEGER PRIMARY KEY,
+                    fishyId TEXT,
+                    botId TEXT,  
+                    ownerId TEXT,  
+                    token TEXT UNIQUE NOT NULL,
+                    expire TEXT
+                )`).run();
+
+
 module.exports = {
     name: 'ready',
 
