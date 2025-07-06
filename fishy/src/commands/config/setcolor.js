@@ -34,7 +34,7 @@ module.exports = {
         // old system with QuickDB
         //await settings_db.set(`${client.botId}_${message.guild.id}.color`, newColor);
 
-        await db.prepare(`UPDATE guild_settings SET color = ? WHERE fishyId = ?`).run(newColor, botData.fishyId)
+        await db.prepare(`UPDATE bot_settings SET color = ? WHERE fishyId = ?`).run(newColor, botData.fishyId)
         const embed = new Discord.EmbedBuilder()
         .setDescription(`✅ La couleur par défaut a été mise à jour en **${newColor}** !`)
         .setColor(newColor);
