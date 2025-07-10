@@ -25,7 +25,7 @@ module.exports = {
 - dayjs
 \`\`\`
             `)
-            .setFooter(`© FishyBots 2025`)
+            .setFooter({text: `© FishyBots 2025`})
             .setColor("Blue")
         await interaction.reply({embeds: [embed]})
 
