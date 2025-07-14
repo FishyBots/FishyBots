@@ -3,7 +3,10 @@ const { Discord, PermissionsBitField } = require('discord.js')
 
 module.exports = {
     name: "clear",
-    description: 'Clear un ou plusieurs messages dans un salon !',
+    description: {
+        fr: 'Clear un ou plusieurs messages dans un salon !',
+        en: 'Clear one or more messages from a channel!'
+    },
     usage: '[@membre] <amount>',
     category: 5,
 

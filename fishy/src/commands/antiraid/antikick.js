@@ -6,7 +6,10 @@ const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"
 
 module.exports = {
     name: "antikick",
-    description: 'Configurer l\'antikick ! (3/1m)',
+    description: {
+        fr: 'Configurer l\'antikick ! (3/1m)',
+        en: 'Configure the antikick (3/1m)'
+    },
     usage: '<on/off>',
     category: 3,
 

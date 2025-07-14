@@ -10,7 +10,10 @@ const Canvas = require('canvas');
 module.exports = {
     name: 'love',
     category: 10,
-    description: "Affiche ton taux d'amour avec un autre membre ❤️",
+    description: {
+        fr: "Affiche ton taux d'amour avec un autre membre ❤️",
+        en: "Show your love rate with another member ❤️"
+    },
     usage: "<@membre> ou random",
 
     /**

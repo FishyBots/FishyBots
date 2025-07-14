@@ -7,7 +7,10 @@ module.exports = {
     name: 'removecmd',
     usage: "<perm|numéro> <commande>",
     category: 8,
-    description: "Supprime une commande spécifique d'une permission",
+    description: {
+        fr: "Supprime une commande spécifique d'une permission",
+        en: "Remove a specific command from a permission"
+    },
     
     /**
      * @param {GestionBot} client 

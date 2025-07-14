@@ -15,7 +15,10 @@ db.prepare(`CREATE TABLE IF NOT EXISTS soutien (
 
 module.exports = {
     name: "soutien",
-    description: 'Configurer la commande soutien',
+    description: {
+        fr: 'Configurer la commande soutien',
+        en: 'Configure the support command'
+    },
     category: 2,
 
     async run(client, message, args, prefix, commandName) {

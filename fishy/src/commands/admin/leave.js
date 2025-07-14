@@ -7,7 +7,10 @@ const { GestionBot } = require('../../createGestion');
 
 module.exports = {
     name: "leave",
-    description: 'Quitter un serveur',
+    description: {
+        fr: 'Quitter un serveur',
+        en: 'Leave a server'
+    },
     category: 2,
     usage: "<id serveur>",
 

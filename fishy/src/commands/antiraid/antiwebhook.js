@@ -6,7 +6,10 @@ const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"
 
 module.exports = {
     name: "antiwebhook",
-    description: 'Configurer l\'antiwebhook !',
+    description: {
+        fr: 'Configurer l\'antiwebhook !',
+        en: 'Configure the antiwebhook!'
+    },
     usage: '<on/off>',
     category: 3,
 

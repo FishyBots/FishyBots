@@ -6,7 +6,10 @@ const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"
 module.exports = {
     name: "sanction",
     aliases: ["warns", "sanctions", "userlog", "userlogs"],
-    description: 'Voir toutes les sanctions d\'un membre',
+    description: {
+        fr: 'Voir toutes les sanctions d\'un membre',
+        en: 'View all sanctions for a member'
+    },
     usage: "<@membre/id>",
     category: 5,
 

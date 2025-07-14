@@ -6,7 +6,10 @@ module.exports = {
     name: 'autologs',
     aliases: ['autolog'],
     category: 6,
-    description: 'Crée automatiquement les salons de logs',
+    description: {
+        fr: 'Crée automatiquement les salons de logs',
+        en: 'Automatically create the log channels'
+    },
     
     run: async (client, message, args) => {
         try {

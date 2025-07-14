@@ -6,7 +6,10 @@ const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"
 
 module.exports = {
     name: "antichannel",
-    description: 'Configurer l\'antichannel !',
+    description: {
+        fr: 'Configurer l\'antichannel !',
+        en: 'Configure the antichannel!'
+    },
     usage: '<on/off>',
     category: 3,
 

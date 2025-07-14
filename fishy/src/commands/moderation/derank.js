@@ -2,7 +2,10 @@ const { PermissionsBitField } = require('discord.js');
 
 module.exports = {
     name: "derank",
-    description: 'Supprimer tous les rôles à un membre !',
+    description: {
+        fr: 'Supprimer tous les rôles à un membre !',
+        en: 'Remove all assigned roles to a member!'
+    },
     usage: '<@membre>',
     category: 5,
 

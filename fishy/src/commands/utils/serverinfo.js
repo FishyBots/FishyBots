@@ -8,11 +8,14 @@ module.exports = {
     name: 'serverinfo',
     aliases: ['serverinfos', "si"],
     category: 1,
-    description: "Avoir des informations sur le serveur !",
+    description: {
+        fr: "Avoir des informations sur le serveur !",
+        en: "Get information about the server!"
+    },
 
     /**
      * 
-     * @param {Snoway} client 
+    
      * @param {Discord.Message} message 
      * @param {Snoway} args 
      */

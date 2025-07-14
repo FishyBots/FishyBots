@@ -12,7 +12,10 @@ module.exports = {
     name: 'join',
     aliases: ['bienvenue'],
     category: 1,
-    description: "Configurer un message de bienvenue!",
+    description: {
+        fr: "Configurer un message de bienvenue!",
+        en: "Set up a welcome message!"
+    },
 
     /**
      * @param {GestionBot} client 
@@ -46,21 +49,21 @@ module.exports = {
         console.log(data);
 
         let settings_embed = new Discord.EmbedBuilder()
-            .setDescription(`*Voici les diffèrents paramère du **+join***\n*En cas de questions il suffit de rejoindre le [support](https://discord.gg/ehpTUUbNfk)*.`)
             .addFields(
                 {
-                    name: "Rôle Automatique",
-                    value: data.role ? `<@&${data.role}>` : '`Aucun`'
+                    name: `${await client.lang("welcome.embed.fields[0].name", client.fishyId)}`,
+                    value: data.role ? `<@&${data.role}>` : `\`${await client.lang("global.none", client.fishyId)}\``
                 },
                 {
-                    name: "Message de bienvenue",
-                    value: data.message ? data.message : '`Aucun`'
+                    name: `${await client.lang("welcome.embed.fields[1].name", client.fishyId)}`,
+                    value: data.message ? data.message : `\`${await client.lang("global.none", client.fishyId)}\``
                 },
                 {
-                    name: "Salon du message",
-                    value: data.channel ? `<#${data.channel}>` : '`Aucun`'
+                    name: `${await client.lang("welcome.embed.fields[2].name", client.fishyId)}`,
+                    value: data.channel ? `<#${data.channel}>` : `\`${await client.lang("global.none", client.fishyId)}\``
                 }
             )
+            .setFooter({text: client.version})
             .setColor(client.color)
 
         let args_button = new Discord.ButtonBuilder()
@@ -71,21 +74,20 @@ module.exports = {
 
         let selector = new Discord.StringSelectMenuBuilder()
             .setCustomId("join_selector")
-            .setPlaceholder("Selectionner une option")
             .addOptions([
                 {
-                    emoji: "👤",
-                    label: "Choisir le Rôle Automatique",
+                    emoji: `${await client.lang("welcome.selector.options[0].emoji", client.fishyId)}`,
+                    label: `${await client.lang("welcome.selector.options[0].label", client.fishyId)}`,
                     value: "sel_role"
                 },
                 {
-                    emoji: "💭",
-                    label: "Choisir le Message de bienvenue",
+                    emoji: `${await client.lang("welcome.selector.options[1].emoji", client.fishyId)}`,
+                    label: `${await client.lang("welcome.selector.options[1].label", client.fishyId)}`,
                     value: "sel_message"
                 },
                 {
-                    emoji: "🌐",
-                    label: "Choisir le Salon",
+                    emoji: `${await client.lang("welcome.selector.options[2].emoji", client.fishyId)}`,
+                    label: `${await client.lang("welcome.selector.options[2].label", client.fishyId)}`,
                     value: "sel_channel"
                 }
             ])

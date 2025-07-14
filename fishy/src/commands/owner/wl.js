@@ -7,7 +7,10 @@ db.prepare("CREATE TABLE IF NOT EXISTS wl (id INTEGER PRIMARY KEY AUTOINCREMENT,
 
 module.exports = {
     name: "wl",
-    description: 'Voir ou ajouter un membre dans la WhiteList',
+    description: {
+        fr: 'Voir ou ajouter un membre dans la WhiteList',
+        en: 'View or add a member to the WhiteList',
+    },
     category: 2,
     usage: '[@membre/id]',
     /**

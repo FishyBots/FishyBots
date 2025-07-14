@@ -2,7 +2,10 @@ const ms = require('ms');
 
 module.exports = {
     name: "tempmute",
-    description: 'Mute un membre temporairement !',
+    description: {
+        fr: 'Mute un membre temporairement !',
+        en: 'Mute a member temporarily !'
+    },
     usage: "<@membre/id> <durée(s/m/h/d)>",
     category: 5,
     run: async (client, message, args) => {

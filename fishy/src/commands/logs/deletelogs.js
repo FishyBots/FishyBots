@@ -6,7 +6,10 @@ module.exports = {
     name: 'deletelogs',
     aliases: ['deletelog', 'dellogs', 'dellog'],
     category: 6,
-    description: 'Supprime la configuration des logs',
+    description: {
+        fr: 'Supprime la configuration des logs',
+        en: 'Delete the log configuration'
+    },
     
     run: async (client, message, args) => {
         // Récupérer la configuration actuelle

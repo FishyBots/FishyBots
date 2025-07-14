@@ -6,7 +6,10 @@ module.exports = {
     name: "greroll",
     aliases: ["reroll"],   
     category: 4,
-    description: "Reroll un giveaway",
+    description: {
+        fr: "Reroll un giveaway",
+        en: "Reroll a giveaway"
+    },
     usage: "[id message]",
     /**
      * @param {Discord.Client} client 

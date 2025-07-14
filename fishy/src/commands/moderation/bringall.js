@@ -2,7 +2,10 @@ const { ChannelType} = require('discord.js');
 
 module.exports = {
     name: "bringall",
-    description: 'Déplacer tous les membres dans un autre salon',
+    description: {
+        fr: 'Déplacer tous les membres dans un autre salon',
+        en: 'Move all members to another channel'
+    },
     usage: '<id>',
     category: 5,
     run: async (client, message, args) => {

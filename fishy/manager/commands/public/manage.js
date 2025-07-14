@@ -39,7 +39,7 @@ module.exports = {
                 }
 
                 if (action === 'run all') {
-                    await interaction.reply("Démarrage de tous les bots...");
+                    await interaction.reply("Starting all bots...");
                     const bots = db.prepare("SELECT * FROM BUYERS").all();
                     for (const bot of bots) {
                         if (bot.Error === "Expired") continue;

@@ -6,7 +6,10 @@ const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"
 
 module.exports = {
     name: "antiupdate",
-    description: 'Configurer l\'antiupdate !',
+    description: {
+        fr: 'Configurer l\'antiupdate !',
+        en: 'Configure the antiupdate!'
+    },
     usage: '<on/off>',
     category: 3,
 

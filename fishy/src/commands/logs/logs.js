@@ -28,7 +28,10 @@ db.prepare(`
 module.exports = {
     name: 'logs',
     aliases: ['log'],
-    description: 'Affiche l\'état des logs',
+    description: {
+        fr: 'Affiche l\'état des logs',
+        en: 'Show the status of the logs'
+    },
     category: 6,
     run: async (client, message, args) => {
 

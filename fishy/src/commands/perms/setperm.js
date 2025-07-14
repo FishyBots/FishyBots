@@ -7,7 +7,10 @@ module.exports = {
     name: 'setperm',
     usage: "<perm/numéro> <@membre/@role ...>",
     category: 8,
-    description: "assigner un rôle à une permission",
+    description: {
+        fr: "assigner un rôle à une permission",
+        en: "assign a role to a permission"
+    },
     /**
      * @param {GestionBot} client 
      * @param {Discord.Message} message 

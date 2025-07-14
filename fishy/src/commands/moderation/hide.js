@@ -2,7 +2,10 @@ const { PermissionsBitField, PermissionFlagsBits } = require('discord.js')
 
 module.exports = {
     name: "hide",
-    description: 'Cacher le salon aux autres membres!',
+    description: {
+        fr: 'Cacher le salon aux autres membres!',
+        en: 'Hide a channel for other members!'
+    },
     category: 5,
     run: async (client, message, args) => {
         

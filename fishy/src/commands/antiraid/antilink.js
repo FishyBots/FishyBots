@@ -3,7 +3,10 @@ const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"
 
 module.exports = {
     name: "antilink",
-    description: "Configurer l'antilink !",
+    description: {
+        fr: "Configurer l'antilink !",
+        en: "Configure the antilink!"
+    },
     usage: "<on/off/state> <all/https/invite>",
     category: 3,
 

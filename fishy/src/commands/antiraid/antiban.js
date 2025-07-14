@@ -6,7 +6,10 @@ const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"
 
 module.exports = {
     name: "antiban",
-    description: 'Configurer l\'antiban en mass (3/1m) !',
+    description: {
+        fr: 'Configurer l\'antiban en mass (3/1m) !',
+        en: 'Configure the antiban (3/1m)'
+    },
     usage: '<on/off>',
     category: 3,
 

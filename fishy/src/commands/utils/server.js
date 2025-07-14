@@ -9,7 +9,10 @@ module.exports = {
     aliases: ['serveur'],
     usage: "<banner/pic>",
     category: 1,
-    description: "Avoir la pdp/la bannière du serveur",
+    description: {
+        fr: "Avoir la pdp/la bannière du serveur",
+        en: "Get the server's profile picture/banner"
+    },
 
     /**
      * @param {Discord.Client} client 

@@ -7,7 +7,10 @@ db.prepare("CREATE TABLE IF NOT EXISTS owner (fishyId TEXT PRIMARY KEY, userIds 
 
 module.exports = {
     name: "owner",
-    description: 'Voir ou ajouter un membre dans la liste des Owners',
+    description: {
+        fr: 'Voir ou ajouter un membre dans la liste des Owners',
+        en: 'View or add a member to the Owners list'
+    },
     category: 2,
     usage: '[@membre/id]',
 
@@ -16,7 +19,7 @@ module.exports = {
             return await message.channel.send("Seul l'owner du bot peut utiliser cette commande !");
         }
 
-        if (client.user.id === "1345045591700537344") return await message.reply("🚫 Vous devez avoir un bot perso pour executer cette commande")
+        if (client.user.id === "1345045591700537344") return await message.reply("🚫 You need to have a custom bot to use this command")
 
         const existingRow = db.prepare("SELECT userIds FROM owner WHERE fishyId = ?").get(client.fishyId);
         if (!existingRow) {

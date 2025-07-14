@@ -25,24 +25,19 @@ module.exports = {
     run: async (client) => {
         try {
             if (autorunall) {
-                console.log("Démarrage de tous les bots...");
+                console.log("Starting all bots...");
 
                 // Récupérer tous les bots de la base de données
                 const bots = db.prepare("SELECT * FROM BUYERS").all();
 
                 if (bots.length == 0) {
-                    await console.log("[AutorunAll] : Aucun bot à lancer");
+                    await console.log("[AutorunAll] : No bot to start.");
                 }
 
                 for (const bot of bots) {
-                    if (bot.Error === "Expired") {
-                        console.log(`⏭️ Bot ${bot.botId} ignoré (expiré).`);
-                        continue;
-                    }
-
                     if (!client.activeBots[bot.botId]) {
                         const { GestionBot } = require('../../../src/createGestion');
-                        const gestion = new GestionBot({ intents: 53608447, partials: [Discord.Partials.Message, Discord.Partials.Reaction, Discord.Partials.Channel, Discord.Partials.GuildMember, Discord.Partials.User]}, bot.botId, bot.ownerId);
+                        const gestion = new GestionBot({ intents: 53608447, partials: [Discord.Partials.Message, Discord.Partials.Reaction, Discord.Partials.Channel, Discord.Partials.GuildMember, Discord.Partials.User] }, bot.botId, bot.ownerId);
 
                         try {
                             // Décrypter le token avant de l'utiliser
@@ -66,12 +61,12 @@ module.exports = {
                     }
                 }
 
-                console.log("✅ Tous les bots ont été démarrés avec succès.");
+                console.log("✅ All bots have been started successfully.");
             } else {
                 console.log("[System] : L'autorunall est désactivé.");
             }
         } catch (error) {
-            console.error("Une erreur s'est produite :", error);
+            console.error("An error occurred.", error);
         }
     }
 };

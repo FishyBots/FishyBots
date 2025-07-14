@@ -19,7 +19,10 @@ module.exports = {
     name: "uptime",
     aliases: ["uptime"],
     category: 1,
-    description: "Voir depuis combien de temps sont connectés les bots",
+    description: {
+        fr: "Voir depuis combien de temps sont connectés les bots",
+        en: "See how long the bots have been online"
+    },
     
     /**
      * @param {bot} client 
@@ -29,7 +32,7 @@ module.exports = {
      */
 
     run: async (client, message, args, prefix, commandName) => {
-        if (client.user.id === "1345045591700537344" && message.author.id !== process.env.OWNER_ID) return await message.reply("🚫 Vous devez avoir un bot perso pour executer cette commande")
+        if (client.user.id === "1345045591700537344" && message.author.id !== process.env.OWNER_ID) return await message.reply("🚫 You need to have a custom bot to use this command")
 
         const uptime = formatUptime(client.uptime);
         message.channel.send(`Le bot est en ligne depuis ${uptime}`);

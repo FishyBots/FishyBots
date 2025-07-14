@@ -8,7 +8,10 @@ const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"
 module.exports = {
     name: "ticket",
     category: 7,
-    description: "Configurer le système de tickets",
+    description: {
+        fr: "Configurer le système de tickets",
+        en: "Configure the ticket system"
+    },
     /**
      * @param {GestionBot} client 
      * @param {Discord.Message} message 

@@ -6,7 +6,10 @@ const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"
 module.exports = {
     name: 'perms',
     category: 8,
-    description: "Voir toutes les permissions du serveurs",
+    description: {
+        fr: "Voir toutes les permissions du serveurs",
+        en: "See all server permissions"
+    },
     /**
      * @param {GestionBot} client 
      * @param {Discord.Message} message 

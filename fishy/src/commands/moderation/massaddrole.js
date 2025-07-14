@@ -9,7 +9,10 @@ module.exports = {
     aliases: ['massrole', 'massadd', 'massroles'],
     usage: "<@role>",
     category: 5,
-    description: "Ajouter un rôle à tous les membres du serveur",
+    description: {
+        fr: "Ajouter un rôle à tous les membres du serveur",
+        en: "Add a role to all server members"
+    },
     /**
      * @param {GestionBot} client 
      * @param {Discord.Message} message 

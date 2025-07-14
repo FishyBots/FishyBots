@@ -3,7 +3,10 @@ const { Discord, PermissionFlagsBits, PermissionOverwrites, PermissionsBitField 
 module.exports = {
     name: 'delrole',
     aliases: ["removerole"],
-    description: 'Supprimer un rôle à un membre !',
+    description: {
+        fr: 'Supprimer un rôle à un membre !',
+        en: 'Remove a role assigned to a member!'
+    },
     usage: '<@membre/id>',
     category: 5,
     async run(client, message, args) {

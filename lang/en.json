@@ -1,15 +1,11 @@
 {
-    "Test_Lang": "This is a language test.",
-    
-    "FishyManager": {
-        "mybots": {
-            "title": "Bot of {arg}",
-            "ExpirationText": ""
-        }
+    "global": {
+        "no_data": "No data found.",
+        "error": "An error occurred.",
+        "none": "None",
+        "no_arg_user": "You must mention a user or provide their Discord ID!"
     },
-    "test": "test",
-
-     "embed": {
+    "embed": {
         "buttons": [
             {
                 "text": "Validate",
@@ -82,5 +78,76 @@
                 }
             ]
         }
+    },
+    "welcome": {
+        "embed": {
+            "fields": [
+                {
+                    "name": "Automatic Role"
+                },
+                {
+                    "name": "Welcome Channel"
+                },
+                {
+                    "name": "Welcome Message"
+                }
+            ]
+        },
+        "selector": {
+            "options": [
+                {
+                    "label": "Edit Automatic Role",
+                    "emoji": "👤"
+                },
+                {
+                    "label": "Edit Welcome Channel",
+                    "emoji": "📢"
+                },
+                {
+                    "label": "Edit Welcome Message",
+                    "emoji": "💬"
+                }
+            ]
+        }
+    },
+    "emoji": {
+        "emoji_created": "{count} emoji{plural} created successfully on the server!"
+    },
+    "say": {
+        "no_arg": "Please provide a message to send."
+    },
+    "fishybots": {
+        "support": "> **Join the Fishybots support server** 🐠 : \n> https://discord.gg/RsBRuNnCVn"
+    },
+    "allcmd": {
+        "commands_count": "This bot has **{count}** commands !"
+    },
+    "snipe": {
+        "no_message": "There is no message to snipe !"
+    },
+    "stats": {
+        "embed": {
+            "title": "**__Statistics of {guildName}__**",
+            "description": "> 👥・Members: {memberCount} \n > 💎・Boosts: {premiumCount} \n > 🎙️・In Voice: {voiceCount} \n > 🟢・Online: {onlineCount}",
+            "footer": {
+                "text": "Requested by : {authorName}"
+            }
+        }
+    },
+    "lock": {
+        "message": "The channel has been successfully **locked**!",
+        "error": "An error occurred while locking the channel."
+    },
+    "unlock": {
+        "message": "The channel has been successfully **unlocked**!",
+        "error": "An error occurred while unlocking the channel."
+    },
+    "activity": {
+        "no_arg": "Please specify an activity!",
+        "message": "✅ New activity successfully defined !",
+        "error": "❌ An error occurred while updating the activity."
+    },
+    "banner": {
+        "error": "This member's banner is not found or does not exist."
     }
 }

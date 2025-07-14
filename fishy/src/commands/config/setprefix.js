@@ -10,7 +10,10 @@ module.exports = {
     aliases: ["prefix"],
     usage: "<nouveau préfix>",
     category: 9,
-    description: "Changer le préfix du Bot !",
+    description: {
+        fr: "Changer le préfixe du Bot",
+        en: "Change the bot's prefix"
+    },
 
     /**
      * @param {bot} client 

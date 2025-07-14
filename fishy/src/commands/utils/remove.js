@@ -6,7 +6,10 @@ module.exports = {
     name: "remove",
     usage: "activity",
     category: 1,
-    description: "Supprime l'activité du bot",
+    description: {
+        fr: "Supprime l'activité du bot",
+        en: "Remove the bot's activity"
+    },
 
     /**
      * @param {import("discord.js").Client} client 
@@ -15,7 +18,7 @@ module.exports = {
      */
     run: async (client, message, args) => {
         if (client.user.id === "1345045591700537344") {
-            return message.reply("🚫 Vous devez avoir un bot perso pour exécuter cette commande");
+            return message.reply("🚫 You need to have a custom bot to use this command");
         }
 
         if (args.length < 1) return;

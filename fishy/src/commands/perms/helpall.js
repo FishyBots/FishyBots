@@ -7,7 +7,10 @@ const buyer = require('better-sqlite3')(path.join(__dirname, "../../../manager/d
 module.exports = {
     name: 'helpall',
     category: 8,
-    description: "Voir toutes les commandes en fonction des permissions du serveur",
+    description: {
+        fr: "Voir toutes les commandes en fonction des permissions du serveur",
+        en: "See all commands based on the server's permissions"
+    },
     /**
      * @param {GestionBot} client 
      * @param {Discord.Message} message 

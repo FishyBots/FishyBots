@@ -5,7 +5,10 @@ const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"
 module.exports = {
     name: "gend",
     category: 4,
-    description: "Stopper un giveaway",
+    description: {
+        fr: "Stopper un giveaway",
+        en: "End a giveaway"
+    },
     usage: "[id message]",
     
     /**

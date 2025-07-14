@@ -6,7 +6,10 @@ module.exports = {
     name: "close",
     usage: "",
     category: 7,
-    description: "Fermer un ticket",
+    description: {
+        fr: "Fermer un ticket",
+        en: "Close a ticket"
+    },
     /**
      * 
      * @param {Discord.Client} client 

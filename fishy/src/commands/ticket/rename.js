@@ -6,7 +6,10 @@ module.exports =  {
     name: "rename",
     usage: "<nouveau nom>",
     category: 7,
-    description: "Renommer un ticket",
+    description: {
+        fr: "Renommer un ticket",
+        en: "Rename a ticket"
+    },
     /**
      * 
      * @param {Discord.Client} client 

@@ -5,13 +5,16 @@ module.exports = {
     aliases: ["emoji"],
     category: 1,
     usage: "<emoji>",
-    description: 'Ajouter un émoji existant à votre serveur',
+    description: {
+        fr: 'Ajouter un émoji existant à votre serveur',
+        en: 'Add an existing emoji to your server'
+    },
     aliases: ["emoji"],
 
 
     /**
      * 
-     * @param {Snoway} client 
+    
      * @param {Discord.Message} message 
      * @param {string[]} args 
      * @returns 
@@ -35,11 +38,17 @@ module.exports = {
                     .then(async (emoji) => {
                         creeemojis++;
                         if (creeemojis === totalEmojis) {
-                            message.channel.send(`${creeemojis} émoji${creeemojis !== 1 ? "s" : ""} créé${creeemojis !== 1 ? "s" : ""} sur le serveur avec succès !`);
+                            const plural = creeemojis !== 1 ? "s" : "";
+                            const msg = await client.lang("emoji.emoji_created", message.guild?.id ?? "", client.fishyId);
+                            const finalMsg = msg
+                                .replace("{count}", String(creeemojis))
+                                .replace(/{plural}/g, plural);
+
+                            message.channel.send(finalMsg);
                         }
                     })
                     .catch(async (error) => {
-                        console.error("Erreur lors de la création de l'emoji :", error);
+                        console.error("Error creating emojis :", error);
                         message.channel.send(`❌ Impossible de créer l'emoji : ${emojiName}`);
                     });
             } else {

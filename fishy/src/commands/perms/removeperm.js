@@ -7,7 +7,10 @@ module.exports = {
     name: 'removeperm',
     usage: "<perm|numéro> <@utilisateur/@rôle>",
     category: 8,
-    description: "Supprime un utilisateur ou un rôle d'une permission",
+    description: {
+        fr: "Supprime un utilisateur ou un rôle d'une permission",
+        en: "Remove a user or role from a permission"
+    },
     
     /**
      * @param {GestionBot} client 

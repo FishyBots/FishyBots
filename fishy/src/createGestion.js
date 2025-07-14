@@ -165,7 +165,7 @@ class GestionBot extends Client {
             }
         }
 
-        console.log(`✅ (${this.botId}) ${totalCommands} commande${totalCommands > 1 ? "s" : ""} chargée${totalCommands > 1 ? "s" : ""} pour ce bot.`);
+        console.log(`✅ (${this.botId}) ${totalCommands} commande${totalCommands > 1 ? "s" : ""} loaded for this bot.`);
     }
 
 
@@ -214,7 +214,7 @@ class GestionBot extends Client {
             }
         }
 
-        console.log(`📜 (${this.botId}) ${totalEvents} event${totalEvents > 1 ? "s" : ""} chargé${totalEvents > 1 ? "s" : ""} pour ce bot.`);
+        console.log(`📜 (${this.botId}) ${totalEvents} event${totalEvents > 1 ? "s" : ""} loaded for this bot.`);
     }
 
 

@@ -6,7 +6,10 @@ const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"
 
 module.exports = {
     name: "antispam",
-    description: 'Configurer l\'antispam !',
+    description: {
+        fr: 'Configurer l\'antispam !',
+        en: 'Configure the antispam!'
+    },
     usage: '<on/off/state>',
     category: 3,
 

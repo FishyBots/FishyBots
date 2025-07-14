@@ -2,7 +2,10 @@ const{ PermissionsBitField, PermissionFlagsBits, Discord } = require('discord.js
 
 module.exports = {
     name: "lock",
-    description: 'Vérouiller un salon pour les autres membres',
+    description: {
+        fr: 'Verrouiller un salon pour les autres membres',
+        en: 'Lock a channel for other members'
+    },        
     category: 5,
     run: async (client, message, args) => {
         
@@ -10,11 +13,11 @@ module.exports = {
 
         await message.channel.permissionOverwrites.edit(id, {
             SendMessages: false
-        }).then(() => {
-            message.reply('Le salon a été verrouillé avec succès.');
-        }).catch(error => {
-            console.error('Erreur lors du verrouillage du salon :', error);
-            message.reply('Une erreur est survenue lors du verrouillage du salon.');
+        }).then(async () => {
+            message.reply(`${await client.lang('lock.message', client.fishyId)}`);
+        }).catch(async error => {
+            console.error('Error while locking the channel :', error);
+            message.reply(`${await client.lang('lock.error', client.fishyId)}`);
         });
     }
     

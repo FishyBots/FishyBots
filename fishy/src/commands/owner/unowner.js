@@ -7,7 +7,10 @@ db.prepare("CREATE TABLE IF NOT EXISTS owner (fishyId TEXT PRIMARY KEY, userIds 
 
 module.exports = {
     name: "unowner",
-    description: 'Enlever un utilisateur de la liste des owners',
+    description: {
+        fr: 'Enlever un utilisateur de la liste des owners',
+        en: 'Remove a user from the owners list'
+    },
     category: 2,
     usage: "<@membre/id>",
     
@@ -16,7 +19,7 @@ module.exports = {
             return await message.channel.send("Seul l'owner du bot peut utiliser cette commande !");
         }
 
-        if (client.user.id === "1345045591700537344") return await message.reply("🚫 Vous devez avoir un bot perso pour executer cette commande")
+        if (client.user.id === "1345045591700537344") return await message.reply("🚫 You need to have a custom bot to use this command")
 
         const userId = args[0]?.replace(/[<@!>]/g, '');
         if (!userId) {

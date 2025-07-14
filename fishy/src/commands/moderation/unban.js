@@ -1,6 +1,9 @@
 module.exports = {
     name: "unban",
-    description: 'Débannir un membre !',
+    description: {
+        fr: 'Débannir un membre !',
+        en: 'Unban a member!',
+    },
     usage: "<@membre>",
     category: 5,
     run: async (client, message, args) => {

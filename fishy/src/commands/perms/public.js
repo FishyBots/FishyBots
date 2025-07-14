@@ -10,7 +10,10 @@ module.exports = {
     name: 'public',
     usage: "<on/off>",
     category: 8,
-    description: "Activer ou désactiver les permissions public",
+    description: {
+        fr: "Activer ou désactiver les permissions public",
+        en: "Enable or disable public permissions",
+    },
     /**
      * @param {GestionBot} client 
      * @param {Discord.Message} message 

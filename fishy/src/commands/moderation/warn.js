@@ -12,7 +12,10 @@ db.prepare(`CREATE TABLE IF NOT EXISTS warns (
 
 module.exports = {
     name: "warn",
-    description: 'Avertir un membre du serveur !',
+    description: {
+        fr: 'Avertir un membre du serveur !',
+        en: 'Warn a server member',
+    },
     usage: "<@membre> [raison]",
     category: 5,
 

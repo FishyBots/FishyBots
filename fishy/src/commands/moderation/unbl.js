@@ -7,7 +7,10 @@ db.prepare("CREATE TABLE IF NOT EXISTS bl (id INTEGER PRIMARY KEY AUTOINCREMENT,
 
 module.exports = {
     name: "unbl",
-    description: 'Retirer un membre de la BlackList!',
+    description: {
+        fr: 'Retirer un membre de la BlackList!',
+        en: 'Remove a member from the BlackList!'
+    },
     usage: '<@membre/id>',
     category: 5,
     async run(client, message, args) {

@@ -7,7 +7,10 @@ const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"
 module.exports = {
     name: "reset-ticket",
     category: 7,
-    description: "Supprimer les données des anciens tickets",
+    description: {
+        fr: "Supprimer les données des anciens tickets",
+        en: "Delete the data of old tickets"
+    },
     /**
      * @param {GestionBot} client 
      * @param {Discord.Message} message 

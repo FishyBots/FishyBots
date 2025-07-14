@@ -4,10 +4,20 @@ const { GestionBot } = require('../../createGestion');
 const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"));
 const db_buyer = require('better-sqlite3')(path.join(__dirname, "../../../manager/db/database.db"))
 
+db.prepare(`CREATE TABLE IF NOT EXISTS rolemenu (
+            id INTEGER PRIMARY KEY, 
+            fishyId TEXT,
+            guildId TEXT,
+            roleOptions TEXT
+        )`).run();
+
 module.exports = {
     name: "rolemenu",
     category: 1,
-    description: "Configurer un rôle",
+    description: {
+        fr: "Configurer un rôle",
+        en: "Configure a role menu"
+    },
     /**
      * 
      * @param {GestionBot} client 
@@ -15,15 +25,6 @@ module.exports = {
      * @param {String[]} args
      */
     run: async (client, message, args) => {
-
-        db.prepare(`CREATE TABLE IF NOT EXISTS rolemenu (
-            id INTEGER PRIMARY KEY, 
-            fishyId TEXT,
-            guildId TEXT,
-            roleOptions TEXT
-        )`).run();
-
-
         const botData = db_buyer.prepare("SELECT fishyId FROM BUYERS WHERE botId = ?").get(client.botId);
         const fishyId = botData.fishyId;
 
@@ -51,23 +52,23 @@ module.exports = {
 
         let roleOptions = JSON.parse(db_row.roleOptions);
 
-        if (roleOptions.Salon != null)  {
+        if (roleOptions.Salon != null) {
             let chnl = message.guild.channels.cache.get(roleOptions.Salon)
             const msg_a_edit = await chnl.messages.fetch(roleOptions.Id).catch(() => null);
-            
+
             if (!msg_a_edit) {
                 roleOptions.Id = null;
-    
+
                 db.prepare("UPDATE rolemenu SET roleOptions = ? WHERE fishyId = ? AND guildId = ?")
                     .run(JSON.stringify(roleOptions), fishyId, message.guild.id);
                 console.log("Option supprimé !")
-    
+
                 return;
-    
+
             }
         }
 
-        
+
 
         let updateRow = (...rowIndexes) => {
             const row0 = new Discord.ActionRowBuilder().addComponents(

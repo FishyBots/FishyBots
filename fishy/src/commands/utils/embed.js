@@ -1,5 +1,6 @@
 const Discord = require('discord.js')
 const { colorFunc } = require("../../../module/color");
+const { GestionBot } = require('../../createGestion');
 
 
 // Fonction pour vérifier si une URL est une image
@@ -21,7 +22,7 @@ module.exports = {
         en: 'Build an embed'
     },
     /**
-    * @param {bot} client 
+    * @param {GestionBot} client 
     * @param {Discord.Message} message 
     * @param {Array<>} args 
     * @param {string} prefix 

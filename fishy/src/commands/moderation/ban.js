@@ -16,7 +16,10 @@ function isUserWhitelisted(fishyId, userId) {
 
 module.exports = {
     name: "ban",
-    description: 'Bannir un membre !',
+    description: {
+        fr: 'Bannir un membre !',
+        en: 'Ban a member!'
+    },
     usage: '<@membre/id> [raison]',
     category: 5,
 

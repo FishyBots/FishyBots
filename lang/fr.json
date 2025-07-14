@@ -1,12 +1,10 @@
 {
-    "Test_Lang": "Ceci est un test de langue",
-    "FishyManager": {
-        "mybots": {
-            "title": "Bot de {arg}",
-            "ExpirationText": ""
-        }
+    "global": {
+        "no_data": "Aucune donnée trouvée.",
+        "error": "Une erreur s'est produite.",
+        "none": "Aucun",
+        "no_arg_user": "Vous devez mentionner un utilisateur ou donner son ID discord !"
     },
-    "test": "test",
     "embed": {
         "buttons": [
             {
@@ -81,5 +79,76 @@
             ]
         },
         "question": {}
+    },
+    "welcome": {
+        "embed": {
+            "fields": [
+                {
+                    "name": "Rôle Automatique"
+                },
+                {
+                    "name": "Salon de Bienvenue"
+                },
+                {
+                    "name": "Message de Bienvenue"
+                }
+            ]
+        },
+        "selector": {
+            "options": [
+                {
+                    "label": "Modifier le Rôle Automatique",
+                    "emoji": "👤"
+                },
+                {
+                    "label": "Modifier le Salon de Bienvenue",
+                    "emoji": "📢"
+                },
+                {
+                    "label": "Modifier le Message de Bienvenue",
+                    "emoji": "💬"
+                }
+            ]
+        }
+    },
+    "emoji": {
+        "emoji_created": "{count} émoji{plural} créé{plural} sur le serveur avec succès !"
+    },
+    "say": {
+        "no_arg": "Vous devez fournir un message à envoyer."
+    },
+    "fishybots": {
+        "support": "> **Rejoins le Support FishyBots** 🐠 : \n> https://discord.gg/RsBRuNnCVn"
+    },
+    "allcmd": {
+        "commands_count": "Il y a actuellement **{count}** commandes sur le bot !"
+    },
+    "snipe": {
+        "no_message": "Il y a aucun message à snipper !"
+    },
+    "stats": {
+        "embed": {
+            "title": "__Statistiques de {guildName}__",
+            "description": "> 👥・Membres : {memberCount} \n > 💎・Boosts : {premiumCount} \n > 🎙️・En Voc : {voiceCount} \n > 🟢・En Ligne : {onlineCount}",
+            "footer": {
+                "text": "Demandé par : {authorName}"
+            }
+        }
+    },
+    "lock": {
+        "message": "Le salon a été **verrouillé** avec succès !",
+        "error": "Une erreur est survenue lors du verrouillage du salon."
+    },
+    "unlock": {
+        "message": "Le salon a été **déverrouillé** avec succès !",
+        "error": "Une erreur est survenue lors du déverrouillage du salon."
+    },
+    "activity": {
+        "no_arg": "Merci de spécifier une activité !",
+        "message": "✅ Nouvelle activité définie avec succès !",
+        "error": " ❌ Une erreur s'est produite lors de la définition de l'activité."
+    },
+    "banner": {
+        "error": "La bannière de ce membre est introuvable ou inexistante."
     }
 }

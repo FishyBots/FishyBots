@@ -7,7 +7,10 @@ module.exports = {
     name: 'clearperm',
     usage: "<perm/numéro>",
     category: 8,
-    description: "Clear tous les membres/rôles d'une permission",
+    description: {
+        fr: "Clear tous les membres/rôles d'une permission",
+        en: "Clear all members/roles from a permission"
+    },
     /**
      * @param {GestionBot} client 
      * @param {Discord.Message} message 

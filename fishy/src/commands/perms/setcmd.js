@@ -7,7 +7,11 @@ module.exports = {
     name: 'setcmd',
     usage: "<perm/numéro> <commande ...>",
     category: 8,
-    description: "assigner une commande à une permission",
+    description: {
+        fr: "assigner une commande à une permission",
+        en: "assign a command to a permission"
+    },
+        
     /**
      * @param {GestionBot} client 
      * @param {Discord.Message} message 

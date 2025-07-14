@@ -2,7 +2,10 @@ const { PermissionsBitField, PermissionFlagsBits } = require('discord.js')
 
 module.exports = {
     name: "unhide",
-    description: 'Remontrer le salon aux autres membres!',
+    description: {
+        fr: 'Remontrer le salon aux autres membres!',
+        en: 'Unhide the channel for other members!'
+    },
     category: 5,
     run: async (client, message, args) => {
         

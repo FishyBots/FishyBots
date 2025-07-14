@@ -10,7 +10,10 @@ module.exports = {
     aliases: ["lang"],
     usage: "<nouvelle langue/list>",
     category: 9,
-    description: "Changer la langue du bot",
+    description: {
+        fr: "Changer la langue du bot",
+        en: "Change the bot's language"
+    },
 
     /**
      * @param {GestionBot} client 

@@ -4,13 +4,16 @@ const db = require('better-sqlite3')(path.join(__dirname, "../../../manager/db/d
 
 module.exports = {
     name: 'setbanner',
-    description: 'Change la bannière du bot',
+    description: {
+        fr: 'Change la bannière du bot',
+        en: 'Change the bot\'s banner'
+    },
     category: 9,
     usage: '<lien image>',
 
     run: async (client, message, args) => {
 
-        if (client.user.id === "1345045591700537344") return await message.reply("🚫 Vous devez avoir un bot perso pour executer cette commande")
+        if (client.user.id === "1345045591700537344") return await message.reply("🚫 You need to have a custom bot to use this command")
 
         const buyer = db.prepare('SELECT * FROM BUYERS WHERE ownerId = ?').get(message.author.id);
         if (!buyer) {

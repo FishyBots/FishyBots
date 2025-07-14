@@ -1,6 +1,9 @@
 module.exports = {
   name: '8ball',
-  description: 'Répond aléatoirement à une question',
+  description: {
+    fr: 'Répond aléatoirement à une question',
+    en: 'Responds randomly to a question'
+  },
   usage: '[question]',
   category: 10,
   

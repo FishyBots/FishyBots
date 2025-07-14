@@ -5,7 +5,10 @@ const { GestionBot } = require('../../createGestion');
 
 module.exports = {
     name: "unwl",
-    description: 'Enlever un utilisateur de la WhiteList',
+    description: {
+        fr: 'Enlever un utilisateur de la WhiteList',
+        en: 'Remove a user from the WhiteList'
+    },
     category: 2,
     usage: "<@membre/id>",
     /**

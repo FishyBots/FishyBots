@@ -9,7 +9,10 @@ module.exports = {
     aliases: ["play"],
     usage: "[message]",
     category: 1,
-    description: "Définir l'activité de **playing** du bot",
+    description: {
+        fr: "Définir l'activité de **playing** du bot",
+        en: "Set the bot's **playing** activity"
+    },
 
     /**
      * @param {import("discord.js").Client} client 
@@ -23,7 +26,7 @@ module.exports = {
         }
 
         if (args.length < 1) {
-            return message.reply("Merci de spécifier une activité !");
+            return message.reply(`${await client.lang("activity.no_arg", client.fishyId)}`);
         }
 
         const activityName = args.join(" ");
@@ -33,17 +36,17 @@ module.exports = {
         try {
             await client.user.setActivity(activityName, { type: activityType });
 
-            // Mise à jour dans la base de données SQLite
+            // Update the activity in the database
             db.prepare(`
                 UPDATE bot_settings 
                 SET activity = ? 
                 WHERE fishyId = ?
             `).run(JSON.stringify({ type: activityTypeInput, name: activityName }), client.fishyId);
 
-            message.channel.send(`✅ Nouvelle activité définie avec succès : \`${activityName}\``);
+            message.channel.send(`${await client.lang("activity.message", client.fishyId, activityName)}`);
         } catch (error) {
-            console.error("Erreur lors de la définition de l'activité :", error);
-            message.channel.send("❌ Une erreur s'est produite lors de la définition de l'activité.");
+            console.error("Error while setting the activity  :", error);
+            message.channel.send(`${await client.lang("activity.error", client.fishyId)}`);
         }
     }
 };

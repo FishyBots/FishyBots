@@ -10,11 +10,11 @@ module.exports = {
 
         await message.channel.permissionOverwrites.edit(id, {
             SendMessages: true
-        }).then(() => {
-            message.reply('Le salon a été déverrouillé avec succès.');
-        }).catch(error => {
-            console.error('Erreur lors du verrouillage du salon :', error);
-            message.reply('Une erreur est survenue lors du verrouillage du salon.');
+        }).then(async () => {
+            message.reply(`${await client.lang('unlock.message', client.fishyId)}`);
+        }).catch(async error => {
+            console.error('Error while unlocking the channel :', error);
+            message.reply(`${await client.lang('unlock.error', client.fishyId)}`);
         });
     }
     

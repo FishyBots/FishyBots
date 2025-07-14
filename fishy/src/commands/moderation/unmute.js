@@ -3,7 +3,10 @@ const ms = require('ms')
 
 module.exports = {
     name: "unmute",
-    description: 'Unmute un membre du serveur !',
+    description: {
+        fr: 'Unmute un membre du serveur !',
+        en: 'Unmute a server member !'
+    },
     category: 5,
     run: async (client, message, args) => {
 

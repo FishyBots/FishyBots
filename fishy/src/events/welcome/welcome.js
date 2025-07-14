@@ -1,7 +1,7 @@
 const Discord = require('discord.js');
 const path = require('path');
 const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"));
-const buyerdb = require('better-sqlite3')(path.join(__dirname, "../../../manager/db/database.db"));
+const { GestionBot } = require('../../createGestion.js');
 
 db.prepare(`CREATE TABLE IF NOT EXISTS welcome (
     id INTEGER PRIMARY KEY,
@@ -12,13 +12,17 @@ db.prepare(`CREATE TABLE IF NOT EXISTS welcome (
     channel TEXT
 )`).run();
 
+
 module.exports = {
     name: 'guildMemberAdd',
+    /**
+     * @param {GestionBot} client 
+    */
     run: async (client, member) => {
         // Fonction pour remplacer les variables dans le message
         function replaceWelcomeMessage(message, member, guild) {
             if (!message || typeof message !== 'string') {
-                console.log("Le message de bienvenue est invalide.");
+                console.log("Invalide Message");
                 return null;
             }
 
@@ -33,49 +37,42 @@ module.exports = {
         }
 
         try {
-            const botData = buyerdb.prepare("SELECT fishyId FROM BUYERS WHERE botId = ?").get(client.user.id);
-            if (!botData) {
-                console.log("Aucune donnée trouvée pour ce bot.");
-                return;
-            }
-            const fishyId = botData.fishyId;
-
-            const guildData = db.prepare("SELECT * FROM welcome WHERE fishyId = ? AND guild = ?").get(fishyId, member.guild.id);
+            const guildData = db.prepare("SELECT * FROM welcome WHERE fishyId = ? AND guild = ?").get(client.fishyId, member.guild.id);
             if (!guildData) {
-                console.log("Aucune configuration trouvée pour ce serveur.");
+                console.log(`${await client.lang("global.no_data", client.fishyId)}`);
                 return;
             }
 
-            // assigner le rôle si configuré
+            // Assign the role if configured
             if (guildData.role) {
                 const role = member.guild.roles.cache.get(guildData.role);
                 if (role) {
                     await member.roles.add(role).catch(err => {
-                        console.log("Erreur lors de l'ajout du rôle :", err);
+                        console.log("Error adding role : ", err);
                     });
                 }
             }
 
-            // Envoyer le message de bienvenue si configuré
+            // Send the welcome message if configured
             if (guildData.channel && guildData.message) {
                 const channel = member.guild.channels.cache.get(guildData.channel);
                 if (channel) {
                     const welcomeMessage = replaceWelcomeMessage(guildData.message, member.user, member.guild);
                     if (welcomeMessage) {
                         await channel.send(welcomeMessage).catch(err => {
-                            console.log("Erreur lors de l'envoi du message de bienvenue :", err);
+                            console.log("Error sending welcome message :", err);
                         });
                     } else {
-                        console.log("Le message de bienvenue est vide ou invalide.");
+                        console.log("The welcome message is empty or invalid.");
                     }
                 } else {
-                    console.log("Le salon de bienvenue est introuvable.");
+                    console.log("The welcome channel was not found.");
                 }
             } else {
-                console.log("Le salon ou le message de bienvenue n'est pas configuré.");
+                console.log("The welcome channel or message is not configured.");
             }
         } catch (error) {
-            console.error("Erreur dans l'event welcome:", error);
+            console.error("Error in welcome.js event :", error);
         }
     }
 };

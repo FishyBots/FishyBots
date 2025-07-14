@@ -2,7 +2,10 @@ const { Discord, PermissionFlagsBits, PermissionOverwrites, PermissionsBitField 
 
 module.exports = {
     name: 'addrole',
-    description: 'Ajouter un rôle à un membre !',
+    description: {
+        fr: 'Ajouter un rôle à un membre !',
+        en: 'Assign a role to a member!'
+    },
     usage: '<@membre/id> <@role/id>',
     category: 5,
     async run(client, message, args) {

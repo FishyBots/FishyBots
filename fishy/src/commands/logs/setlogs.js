@@ -5,7 +5,10 @@ const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"
 module.exports = {
     name: 'setlogs',
     aliases: ['setlog'],
-    description: 'Configurer une log',
+    description: {
+        fr: 'Configurer une log',
+        en: 'Configure a log'
+    },
     category: 6,
     usage: '<type> <on/off> [#salon]',
 

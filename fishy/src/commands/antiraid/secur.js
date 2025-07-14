@@ -32,7 +32,10 @@ const protections = {
 
 module.exports = {
     name: "secur",
-    description: 'Configurer la sécurité du serveur !',
+    description: {
+        fr: 'Configurer la sécurité du serveur !',
+        en: 'Configure the server security!'
+    },
     usage: '<on/off>',
     category: 3,
 

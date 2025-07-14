@@ -21,7 +21,10 @@ db.prepare(`CREATE TABLE IF NOT EXISTS giveaways (
 module.exports = {
     name: "giveaway",
     category: 4,
-    description: "Ouvrir le panneau de configuration des giveaway",
+    description: {
+        fr: "Ouvrir le panneau de configuration des giveaway",
+        en: "Open the giveaways configuration panel"
+    },
 
     /**
      * @param {bot} client 
@@ -167,7 +170,7 @@ module.exports = {
             } catch (error) {
                 console.error("Erreur lors de la gestion de l'interaction :", error);
                 if (!i.deferred && !i.replied) {
-                    await i.reply({ content: "Une erreur s'est produite. Veuillez réessayer.", ephemeral: true });
+                    await i.reply({ content: `${await client.lang("global.error"), client.fishyId}`, ephemeral: true });
                 }
             }
         });

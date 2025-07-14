@@ -7,7 +7,10 @@ module.exports = {
     name: 'snipe',
     aliases: ['sp'],
     category: 1,
-    description: "Voir le dernier message supprimé du salon",
+    description: {
+        fr: "Voir le dernier message supprimé du salon",
+        en: "See the last deleted message in the channel"
+    },
     
      /**
      * @param {bot} client 
@@ -19,7 +22,7 @@ module.exports = {
         const snipe = client.SnipeMsg.get(message.channel.id)
 
         if(!snipe) {
-            return message.channel.send("Il n'y a aucun message à snipe dans ce salon.");
+            return message.channel.send(`${await client.lang("snipe.no_message", client.fishyId)}`);
         }
         const user = client.users.cache.get(snipe.author)
         if(!user) {

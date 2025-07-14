@@ -22,7 +22,10 @@ const categories = {
 
 module.exports = {
     name: 'help',
-    description: 'Affiche le menu d\'aide du bot',
+    description: {
+        fr: 'Affiche le menu d\'aide du bot',
+        en: 'Displays the bot help menu'
+    },
     usage: '[all]',
     category: 1,
 
@@ -136,13 +139,13 @@ module.exports = {
             return new Discord.EmbedBuilder()
                 .setColor(client.color)
                 .setTitle(`${category.name} (${cmds.length})`)
-                .setDescription(`ℹ️ ➜ **FishyBots est maintenant [open-source](https://github.com/fishybots/fishybots.git) !**\n`)
+                .setDescription(`ℹ️ ➜ **FishyBots is now [open-source](https://github.com/fishybots/fishybots.git) !**\n`)
                 .setThumbnail(client.user.displayAvatarURL({ dynamic: true, size: 512 }))
         
                 .addFields(
                     cmds.map(cmd => ({
                         name: `\`${prefix}${cmd.name}${cmd.usage ? ` ${cmd.usage}` : ''}\``,
-                        value: `${cmd.description}\n\u200B`, // ajoute une "ligne vide"
+                        value: `${cmd.description[client.langcode]}\n\u200B`,
                         inline: false
                     }))
                 )

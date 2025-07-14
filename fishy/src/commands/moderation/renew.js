@@ -5,7 +5,10 @@ const { GestionBot } = require('../../createGestion');
 module.exports = {
     name: "renew",
     aliases: ["nuke"],
-    description: 'Recréer un salon',
+    description: {
+        fr: 'Recréer un salon',
+        en: 'Recreate a channel'
+    },
     category: 5,
 
     /**

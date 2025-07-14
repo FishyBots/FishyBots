@@ -9,7 +9,10 @@ module.exports = {
   aliases: ['avatar', "pp", "pfp"],
   usage: "<@membre/id>",
   category: 1,
-  description: "Obtenir la photo de profil d'un membre",
+  description: {
+    fr: "Obtenir la photo de profil d'un membre",
+    en: "Get a member's profile picture"
+  },
     /**
      * @param {Discord.Client} client 
      * @param {Discord.Message} message 

@@ -10,7 +10,10 @@ module.exports = {
     aliases: ["settheme", "theme", "color"],
     usage: "<nouvelle couleur>",
     category: 9,
-    description: "Changer les couleurs des embeds du Bot !",
+    description: {
+        fr: "Changer les couleurs des embeds du Bot !",
+        en: "Change the colors of the Bot embeds!"
+    },
     
     /**
      * @param {bot} client 

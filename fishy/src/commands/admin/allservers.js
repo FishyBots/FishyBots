@@ -7,7 +7,10 @@ require('dotenv').config();
 
 module.exports = {
     name: "allservers",
-    description: 'Voir tous les serveurs du bot',
+    description: {
+        fr: 'Voir tous les serveurs du bot',
+        en: 'View all servers the bot is in'
+    },
     category: 2,
 
     /**
