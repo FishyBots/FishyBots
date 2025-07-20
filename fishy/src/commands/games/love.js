@@ -43,9 +43,9 @@ module.exports = {
 
         const lovePercent = Math.floor(Math.random() * 101);
 
-        const heart1 = path.join(__dirname, '../../../../assets/1f49e.png');
-        const heart2 = path.join(__dirname, '../../../../assets/1f498.png');
-        const heart3 = path.join(__dirname, '../../../../assets/1f494.png');
+        const heart1 = path.join(__dirname, '../../../assets/1f49e.png');
+        const heart2 = path.join(__dirname, '../../../assets/1f498.png');
+        const heart3 = path.join(__dirname, '../../../assets/1f494.png');
 
         let heartPath = heart3;
         if (lovePercent > 80) heartPath = heart1;
