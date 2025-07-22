@@ -81,7 +81,7 @@ OWNER_ID=827423070402510848
 ```
 
 <p>Finally, you can run the bot with:</p>
-<pre><code>npm start ./fishy/index.js</code></pre>
+<pre><code>node ./fishy/index.js</code></pre>
 
 > ℹ️ **Warning:** If you encounter any issues, you can join the [FishyBots support server](https://discord.gg/RsBRuNnCVn).
 
