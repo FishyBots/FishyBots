@@ -6,6 +6,7 @@ const path = require('path');
 const { genid } = require('../../../module/genid');
 const db = require('better-sqlite3')(path.join(__dirname, "../../db/database.db"));
 require("dotenv").config();
+const crypto = require('crypto')
 
 module.exports = {
     data: new SlashCommandBuilder()

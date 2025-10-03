@@ -1,5 +1,3 @@
-
-
 async function colorFunc(colorArg) {
     const colorMap = {
         "red": "#FF0000",
