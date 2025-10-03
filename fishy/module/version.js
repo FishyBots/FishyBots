@@ -1,3 +1,3 @@
-const version = "© FishyBots 1.9.x";
+const version = "© FishyBots 2.0.x";
 
 module.exports = { version };

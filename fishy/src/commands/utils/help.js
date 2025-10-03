@@ -122,7 +122,8 @@ module.exports = {
                     ``,
                     `\`\`\`• Préfixe: ${prefix}`,
                     `• Commandes disponibles: ${accessibleCommands.size}`,
-                    `• Version: ${version}\`\`\``,
+                    `• Version: ${version}`,
+                    `• License: GPL-3.0\`\`\``,
                     `*\`<...>\` : Argument obligatoire*`,
                     `*\`[...]\` : Argument facultatif ou message*`
                 ].join('\n'))
